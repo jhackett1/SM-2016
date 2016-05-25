@@ -12,7 +12,10 @@ a:hover {
   text-decoration: underline; }
 
 h1, h2, h3, h4, h5 {
-  font-family: Oswald;
+  font-family: Oswald, sans serif;
   text-transform: uppercase; }
+
+p {
+  font-family: Lato, serif; }
 
 /*# sourceMappingURL=main.css.map */
