@@ -12,7 +12,12 @@
 This is the header
 
 <header id="normal">
-  <img>
-  <nav></nav>
-  <nav></nav>
+  <div class="container">
+    <nav>
+      <?php wp_nav_menu( array( 'theme_location' => 'top' ) ); ?>
+    </nav>
+    <nav>
+        <?php wp_nav_menu( array( 'theme_location' => 'social' ) ); ?>
+    </nav>
+  </div>
 </header>

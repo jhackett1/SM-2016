@@ -18,4 +18,25 @@ h1, h2, h3, h4, h5 {
 p {
   font-family: Lato, serif; }
 
+header {
+  background: -moz-linear-gradient(top, white 0%, rgba(255, 255, 255, 0) 100%);
+  background: -webkit-linear-gradient(top, white 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(to bottom, white 0%, rgba(255, 255, 255, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
+  width: 100%;
+  padding: 10px; }
+  header div.container {
+    max-width: 1000px;
+    margin: 0px auto;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    justify-content: space-between; }
+    header div.container nav:first-of-type {
+      align-items: flex-start; }
+    header div.container nav:last-of-type {
+      align-items: flex-end; }
+  header nav div ul li {
+    display: inline; }
+
 /*# sourceMappingURL=main.css.map */

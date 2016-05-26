@@ -35,3 +35,28 @@ h1, h2, h3, h4, h5
 
 p
   font-family: $p-stack
+
+header
+  background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)
+  background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%)
+  background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%)
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 )
+  width: 100%
+  padding: 10px
+
+  div.container
+    max-width: 1000px
+    margin: 0px auto
+    display: flex
+    display: -webkit-flex
+    flex-direction: row
+    justify-content: space-between
+
+    nav:first-of-type
+      align-items: flex-start
+
+    nav:last-of-type
+      align-items: flex-end
+
+  nav div ul li
+    display: inline
