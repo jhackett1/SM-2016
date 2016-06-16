@@ -1,3 +1,18 @@
+@media (max-width: 770px) {
+  div.grid-item {
+    width: 50% !important; }
 
+  div.post.hero {
+    flex-direction: column !important; }
+    div.post.hero div.img, div.post.hero div.meta {
+      width: 100% !important; }
+    div.post.hero div.img {
+      height: 250px !important; } }
+@media (max-width: 650px) {
+  div.sidebyside {
+    width: 100% !important; } }
+@media (max-width: 500px) {
+  div.grid-item {
+    width: 100% !important; } }
 
 /*# sourceMappingURL=responsive.css.map */

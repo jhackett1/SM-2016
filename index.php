@@ -1,76 +1,6 @@
 <?php get_header(); ?>
 
-<section id="masthead">
-  <!-- The website masthead and frontpage navigation -->
-  <h1><?php bloginfo("name"); ?></h1>
-  <hr>
-  <h3><?php bloginfo("description"); ?></h3>
-  <!-- <nav>
-      <?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-  </nav> -->
-
-  <div id="container">
-  	<a href="#">
-  	<div class="bar">
-  		<div class="color" id="one">
-  			<h5>Views</h5>
-  		</div>
-  		<div class="spacer">
-  		</div>
-  	</div>
-  	</a>
-  		<a href="#">
-  		<div class="bar">
-  		<div class="color" id="two">
-  			<h5>Culture</h5>
-  		</div>
-  		<div class="spacer">
-  		</div>
-  	</div>
-  	</a>
-  		<a href="#">
-  		<div class="bar">
-  		<div class="color" id="three">
-  			<h5>Reviews</h5>
-  		</div>
-  		<div class="spacer">
-  		</div>
-  	</div>
-  	</a>
-  	<a href="#">
-  	<div class="bar">
-  		<div class="color" id="four">
-  			<h5>Music</h5>
-  		</div>
-  		<div class="spacer">
-  		</div>
-  	</div>
-  	</a>
-  		<a href="#">
-  		<div class="bar">
-  		<div class="color" id="five">
-  			<h5>Lifestyle</h5>
-  		</div>
-  		<div class="spacer">
-  		</div>
-  	</div>
-  	</a>
-  		<a href="#">
-  		<div class="bar">
-  		<div class="color" id="six">
-  			<h5>Fashion</h5>
-  		</div>
-  		<div class="spacer">
-  		</div>
-  	</div>
-  	</a>
-
-  </div>
-
-  <div id="bg" style="background-image: url(<?php bloginfo('template_directory'); ?>/img/bg1.jpg)"></div>
-
-
-</section>
+<?php get_template_part( "masthead" ); ?>
 
 <!-- A section displaying three featured posts -->
 <section id="featured">
@@ -89,17 +19,31 @@ $feat = $feat[0];
 
         //Apply hero class to first post
         if ($counter==0){
-          ?> <div class="post hero"> <?php
+          ?>
+          <div class="spacer">
+            <div class="post hero">
+              <div class="img" style="background-image:url(<?php echo $feat; ?>) "></div>
+              <div class="meta">
+                <h5><?php the_category( ", " ); ?> | By <?php the_author(); ?></h5>
+                <h3><?php the_title(); ?></h3>
+                <hr>
+                <p><?php the_excerpt(); ?></p>
+              </div>
+            </div>
+          </div>
+            <?php
         } else {
-          ?> <div class="post"> <?php
+          ?>
+          <div class="sidebyside">
+            <div class="post trail" style="background-image:url(<?php echo $feat; ?>) ">
+              <div class="grad"></div>
+              <h3><?php the_title(); ?></h3>
+            </div>
+          </div>
+          <?php
         };
           ?>
-          <img src="<?php echo $feat; ?>" ?>
-          <h5><?php the_category( ", " ); ?> | By <?php the_author(); ?></h5>
-          <h3><?php the_title(); ?></h3>
-          <hr>
-          <p><?php the_excerpt(); ?></p>
-        </div>
+
 
     <?php
     //Iterate the counter
@@ -108,6 +52,9 @@ $feat = $feat[0];
         };
       };
     ?>
+
+    <div style="clear:both;"></div>
+
     </div>
   </div>
 </section>
@@ -118,25 +65,36 @@ $feat = $feat[0];
     <hr id="sides">
     <h2 id="divider">The latest</h2>
 
-    <div class="postbox">
+
+
+    <div class="postbox grid">
     <?php
-    //Declares a counter variable, which will count only the first three posts
     //The loop
     if ( have_posts() ){
       while ( have_posts()){
         the_post();
 
+        //Establish a counter variable and stop the loop if the specified value is reached
+        static $count = 0;
+        if ($count == "20") { break; }
+        else {
+
         $feat = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
 $feat = $feat[0];
           ?>
-          <div class="post">
-          <img src="<?php echo $feat; ?>" />
-          <h5><?php the_category( ", " ); ?> | By <?php the_author(); ?></h5>
-          <h3><?php the_title(); ?></h3>
-          <hr>
-          <p><?php the_excerpt(); ?></p>
-        </div>
+          <div class="grid-item">
+            <div class="post">
+              <img src="<?php echo $feat; ?>" />
+              <h5><?php the_category( ", " ); ?> | By <?php the_author(); ?></h5>
+              <h3><?php the_title(); ?></h3>
+              <hr>
+              <p><?php the_excerpt(); ?></p>
+            </div>
+          </div>
     <?php
+  };
+    //Iterate the counter
+    $count++;
     //End the loop
         };
       };
@@ -144,5 +102,16 @@ $feat = $feat[0];
     </div>
   </div>
 </section>
+
+<script>
+ window.onload = function () {
+jQuery('.grid').masonry({
+// options
+itemSelector: '.grid-item',
+itemSelector: '.grid-item',
+percentPosition: true
+});
+}
+</script>
 
 <?php get_footer(); ?>

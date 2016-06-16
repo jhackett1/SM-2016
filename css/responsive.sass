@@ -3,8 +3,26 @@
 
 
 //Styling for tablets and smaller
-@media (max-width: 1000px)
+@media (max-width: 770px)
+  div.grid-item
+    width: 50% !important
+
+  div.post.hero
+    flex-direction: column !important
+
+    div.img, div.meta
+      width: 100% !important
+
+    div.img
+      height: 250px !important
+
+//Styling for phones and smaller
+@media (max-width: 650px)
+  div.sidebyside
+    width: 100% !important
 
 
 //Styling for phones and smaller
-@media (max-width: 700px)
+@media (max-width: 500px)
+  div.grid-item
+    width: 100% !important

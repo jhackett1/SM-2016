@@ -3,7 +3,7 @@
 //Initial addition of responsive styling and jQuery
 	wp_enqueue_style( 'Styles', get_stylesheet_uri() );
 	wp_enqueue_style( 'FontAwesome', get_stylesheet_directory_uri() . '/font-awesome/css/font-awesome.min.css' );
-	wp_enqueue_script( 'jquery', get_template_directory_uri() . '/js/jquery.js');
+	wp_enqueue_script( 'jquery', get_template_directory_uri() . '/js/jquery-1.12.4.min');
 	wp_enqueue_script( 'masonry', 'https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js');
 
 //Adds in Google Web fonts
