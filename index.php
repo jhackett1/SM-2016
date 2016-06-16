@@ -49,7 +49,7 @@ $feat = $feat[0];
     //Iterate the counter
     $counter++;
     //End the loop
-        };
+  };
       };
     ?>
 
