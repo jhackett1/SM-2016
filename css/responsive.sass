@@ -16,13 +16,40 @@
     div.img
       height: 250px
 
+  .mobilehide
+    display: none !important
+
+  section#masthead
+    div.container
+      flex-direction: column
+
+      div:first-of-type
+        order: 2
+        width: 100%
+
+      div:last-of-type
+        display: none
+
 //Styling for phones and smaller
 @media (max-width: 650px)
   div.sidebyside
     width: 100% !important
 
+  section#menu
+    width: 100%
+    max-width: 100%
+    left: -100%
 
-//Styling for phones and smaller
+    nav:first-of-type
+      ul
+        li
+          font-size: 1em !important
+
+    nav:nth-of-type(2)
+      ul
+        li
+          font-size: 0.8em !important
+
 @media (max-width: 500px)
   div.grid-item
     width: 100% !important

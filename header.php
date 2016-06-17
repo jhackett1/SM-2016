@@ -11,7 +11,7 @@
 
 <section id="overlay"></section>
 
-<header id="normal">
+<header id="normal" class="mobilehide">
   <div class="container">
     <nav>
       <?php wp_nav_menu( array( 'theme_location' => 'top' ) ); ?>

@@ -101,6 +101,10 @@ section#masthead
   background-color: $light-grey
   border-top: 0.5px solid #dfdfdf
   border-bottom: 0.5px solid #dfdfdf
+  z-index: 60
+
+  a:hover
+    text-decoration: none
 
   div.container
     display: flex
@@ -164,15 +168,17 @@ div.post.hero
   margin: 10px 10px 10px 10px
   padding-bottom: 0px
   box-sizing: border-box
+  overflow: hidden
 
   div.img
     width: 66%
-    height: 350px
+    max-height: 500px
     background-position: center
     background-size: cover
 
   div.meta
     width: 33%
+    padding-bottom: 40px
 
     h3
       font-size: 2.5em
@@ -226,6 +232,15 @@ div.post
   background-color: $background
   margin: 10px
   padding-bottom: 10px
+  position: relative
+
+  a.cover
+    position: absolute
+    top: 0
+    right: 0
+    left: 0
+    bottom: 0
+    z-index: 5
 
   img
     width: 100%
@@ -247,6 +262,8 @@ div.post
     text-transform: uppercase
     font-size: 0.7em
     margin: 15px
+    z-index: 10
+    position: relative
 
     a
       color: $mid-grey
@@ -365,6 +382,9 @@ section#menu
   transition: 0.2s
   padding: 20px
   box-sizing: border-box
+  display: flex
+  flex-direction: column
+  justify-content: space-between
 
   i.fa-times
     color: $mid-grey
@@ -376,6 +396,73 @@ section#menu
 
   i.fa-times:hover
     transform: scale(1.1,1.1)
+
+  nav:first-of-type
+    margin: 30px 20px 10px 20px
+
+    ul
+      list-style-type: none
+
+      li:hover
+        background-color: $light-grey
+
+      li
+        font-family: $h-stack
+        text-transform: uppercase
+        font-weight: 100
+        border-bottom: 0.5px solid #dfdfdf
+        font-size: 1.2em
+        padding: 5px 5px 10px 5px
+        transition: 0.1s
+
+        a
+          color: $text
+          display: block
+
+        a:hover
+          text-decoration: none
+
+  nav:nth-of-type(2)
+    margin: 5px 20px 5px 20px
+
+    ul
+      list-style-type: none
+
+      li
+        font-family: $h-stack
+        text-transform: uppercase
+        font-weight: 100
+        font-size: 1.2em
+        padding: 5px 10px 5px 10px
+        transition: 0.1s
+        color: #505050
+
+
+        a
+          color: #505050
+
+  nav:last-of-type
+    margin: 20px 20px 20px 20px
+
+    ul
+      list-style-type: none
+
+      li:hover
+        background-color: $light-grey
+
+      li
+        font-family: $h-stack
+        text-transform: uppercase
+        font-weight: 100
+        font-size: 1.2em
+        padding: 10px 10px 10px 10px
+        margin-right: 10px
+        transition: 0.1s
+        display: inline
+
+        a
+          color: $text
+
 
 
 
@@ -399,3 +486,20 @@ section#menu.on
 section#overlay.on
   display: block !important
   transition: 0.2s
+
+section.single-header
+  height: 100%
+  background-size: cover
+  background-position: center
+
+article
+  color: $text
+  margin: 30px
+
+  p
+    font-size: 1.1em
+    margin-bottom: 20px
+    color: $text
+
+  img
+    width: 100%

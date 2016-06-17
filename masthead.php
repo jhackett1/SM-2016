@@ -4,7 +4,9 @@
 
     <div id="menu-on"><i class="fa fa-bars"></i> Sections</div>
 
-    <h1 id="site-title"><span>Smoke</span> Magazine</h1>
+    <a href="<?php bloginfo("url"); ?>">
+      <h1 id="site-title"><span>Smoke</span> Magazine</h1>
+    </a>
 
     <div><i class="fa fa-search"></i>Search</div>
   </div>

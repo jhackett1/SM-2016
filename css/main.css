@@ -75,7 +75,10 @@ section#masthead {
   overflow: hidden;
   background-color: #efefef;
   border-top: 0.5px solid #dfdfdf;
-  border-bottom: 0.5px solid #dfdfdf; }
+  border-bottom: 0.5px solid #dfdfdf;
+  z-index: 60; }
+  section#masthead a:hover {
+    text-decoration: none; }
   section#masthead div.container {
     display: flex;
     flex-direction: row;
@@ -129,14 +132,16 @@ div.post.hero {
   flex-direction: row;
   margin: 10px 10px 10px 10px;
   padding-bottom: 0px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  overflow: hidden; }
   div.post.hero div.img {
     width: 66%;
-    height: 350px;
+    max-height: 500px;
     background-position: center;
     background-size: cover; }
   div.post.hero div.meta {
-    width: 33%; }
+    width: 33%;
+    padding-bottom: 40px; }
     div.post.hero div.meta h3 {
       font-size: 2.5em; }
 
@@ -185,7 +190,15 @@ div.postbox div.grid-item {
 div.post {
   background-color: #fafafa;
   margin: 10px;
-  padding-bottom: 10px; }
+  padding-bottom: 10px;
+  position: relative; }
+  div.post a.cover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 5; }
   div.post img {
     width: 100%; }
   div.post h3 {
@@ -202,7 +215,9 @@ div.post {
     color: #505050;
     text-transform: uppercase;
     font-size: 0.7em;
-    margin: 15px; }
+    margin: 15px;
+    z-index: 10;
+    position: relative; }
     div.post h5 a {
       color: #505050; }
   div.post p {
@@ -306,7 +321,10 @@ section#menu {
   z-index: 99;
   transition: 0.2s;
   padding: 20px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
   section#menu i.fa-times {
     color: #505050;
     cursor: pointer;
@@ -316,6 +334,56 @@ section#menu {
     top: 20px; }
   section#menu i.fa-times:hover {
     transform: scale(1.1, 1.1); }
+  section#menu nav:first-of-type {
+    margin: 30px 20px 10px 20px; }
+    section#menu nav:first-of-type ul {
+      list-style-type: none; }
+      section#menu nav:first-of-type ul li:hover {
+        background-color: #efefef; }
+      section#menu nav:first-of-type ul li {
+        font-family: Oswald, sans serif;
+        text-transform: uppercase;
+        font-weight: 100;
+        border-bottom: 0.5px solid #dfdfdf;
+        font-size: 1.2em;
+        padding: 5px 5px 10px 5px;
+        transition: 0.1s; }
+        section#menu nav:first-of-type ul li a {
+          color: #2d2d2d;
+          display: block; }
+        section#menu nav:first-of-type ul li a:hover {
+          text-decoration: none; }
+  section#menu nav:nth-of-type(2) {
+    margin: 5px 20px 5px 20px; }
+    section#menu nav:nth-of-type(2) ul {
+      list-style-type: none; }
+      section#menu nav:nth-of-type(2) ul li {
+        font-family: Oswald, sans serif;
+        text-transform: uppercase;
+        font-weight: 100;
+        font-size: 1.2em;
+        padding: 5px 10px 5px 10px;
+        transition: 0.1s;
+        color: #505050; }
+        section#menu nav:nth-of-type(2) ul li a {
+          color: #505050; }
+  section#menu nav:last-of-type {
+    margin: 20px 20px 20px 20px; }
+    section#menu nav:last-of-type ul {
+      list-style-type: none; }
+      section#menu nav:last-of-type ul li:hover {
+        background-color: #efefef; }
+      section#menu nav:last-of-type ul li {
+        font-family: Oswald, sans serif;
+        text-transform: uppercase;
+        font-weight: 100;
+        font-size: 1.2em;
+        padding: 10px 10px 10px 10px;
+        margin-right: 10px;
+        transition: 0.1s;
+        display: inline; }
+        section#menu nav:last-of-type ul li a {
+          color: #2d2d2d; }
 
 section#overlay {
   display: none;
@@ -337,5 +405,20 @@ section#menu.on {
 section#overlay.on {
   display: block !important;
   transition: 0.2s; }
+
+section.single-header {
+  height: 100%;
+  background-size: cover;
+  background-position: center; }
+
+article {
+  color: #2d2d2d;
+  margin: 30px; }
+  article p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    color: #2d2d2d; }
+  article img {
+    width: 100%; }
 
 /*# sourceMappingURL=main.css.map */
