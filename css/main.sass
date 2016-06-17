@@ -5,6 +5,7 @@ $background: #fafafa
 $light-grey: #efefef
 $mid-grey: #505050
 $brand-red: #9c1f32
+$dark-red: #6f1523
 $views: #a73b4b
 $lifestyle: #9bce6f
 $reviews: #98509c
@@ -23,9 +24,10 @@ $p-stack: Lato, serif
 body
   background-color: $light-grey
   box-sizing: border-box
+  position: relative
 
 ::selection
-  background-color: $brand-red
+  background-color: rgba(156,31,50,0.5)
 
 a
   text-decoration: none
@@ -43,15 +45,13 @@ p
 div.container
   max-width: 1000px
   margin: 0px auto
-  padding: 10px
 
 header
-  background: $light-grey
+  background: #dfdfdf
   width: 100%
-  padding: 0px 10px 0px 10px
   border-bottom: 0.5px solid #dfdfdf
-  position: fixed
   z-index: 30
+  padding: 10px 0px 10px 0px
 
   div.container
     display: flex
@@ -72,8 +72,8 @@ header
     text-transform: uppercase
     margin-right: 10px
 
-    a
-      color: $text
+  a
+    color: $text
 
   nav:last-of-type div ul li
     display: inline
@@ -82,64 +82,61 @@ header
     text-transform: uppercase
     margin-right: 5px
 
-    a
-      color: $text
+div#spacer.on
+  width: 100%
+  height: 60px
 
 section#masthead, footer
   text-align: center
 
+.fixed
+  position: fixed
+  z-index: 7
+  top: 0
+  width: 100%
+
 section#masthead
-  height: 100vh
+  min-height: 60px
   overflow: hidden
-  display: flex
-  flex-direction: column
-  align-items: center
-  justify-content: center
+  background-color: $light-grey
+  border-top: 0.5px solid #dfdfdf
+  border-bottom: 0.5px solid #dfdfdf
 
-  h1
-    font-size: 4em
-    color: $text
-    z-index: 4
-    margin-top: -120px
+  div.container
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-between
 
-  hr
-    width: 30px
-    border: 3px solid $brand-red
-    margin: 5px auto 10px auto
-    z-index: 4
+    div
+      min-height: 60px
+      border-right: 0.5px solid #dfdfdf
+      border-left: 0.5px solid #dfdfdf
+      display: flex
+      justify-content: center
+      align-items: center
+      padding: 0px 20px 0px 20px
+      font-family: $h-stack
+      color: $mid-grey
+      font-size: 1.1em
+      transition: 0.1s
+      cursor: pointer
 
-  h3
-    color: $mid-grey
-    z-index: 4
+      i
+        margin-right: 10px
 
-  div#bg
-    width: 100%
-    height: 100%
-    z-index: -1
-    background-size: cover
-    background-position: center
-    position: absolute
-    top: 0
-    left: 0
-    right: 0
-    bottom: 0
-    max-width: 100%
-    filter: ssaturate(0) brightness(2) contrast(0.5)
-    -webkit-filter: saturate(0) brightness(2) contrast(0.5)
-    opacity: 0.3
+    div:hover
+      background-color: #dfdfdf
 
-  div#grad
-    width: 100%
-    position: absolute
-    bottom: 0
-    left: 0
-    right: 0
-    height: 30%
-    background: -moz-linear-gradient(top,  rgba(239,239,239,0) 0%, rgba(239,239,239,1) 100%)
-    background: -webkit-linear-gradient(top,  rgba(239,239,239,0) 0%,rgba(239,239,239,1) 100%)
-    background: linear-gradient(to bottom,  rgba(239,239,239,0) 0%,rgba(239,239,239,1) 100%)
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00efefef', endColorstr='#efefef',GradientType=0 )
-    z-index: 1
+    h1
+      font-size: 2em
+      color: $text
+      z-index: 4
+      transition: 0.1s
+
+      span
+        color: $brand-red
+
 
 div.postbox
   width: 100%
@@ -170,7 +167,7 @@ div.post.hero
 
   div.img
     width: 66%
-    height: 400px
+    height: 350px
     background-position: center
     background-size: cover
 
@@ -285,9 +282,38 @@ footer .container
     margin-top: 20px
 
 section#featured
-  margin-top: -300px
   z-index: 3
   position: relative
+  padding-top: 100px
+
+  div#bg
+    width: 100%
+    height: 100%
+    z-index: -1
+    background-size: cover
+    background-position: center
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    max-width: 100%
+    filter: ssaturate(0) brightness(2) contrast(0.5)
+    -webkit-filter: saturate(0) brightness(2) contrast(0.5)
+    opacity: 0.3
+
+  div#grad
+    width: 100%
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+    height: 30%
+    background: -moz-linear-gradient(top,  rgba(239,239,239,0) 0%, rgba(239,239,239,1) 100%)
+    background: -webkit-linear-gradient(top,  rgba(239,239,239,0) 0%,rgba(239,239,239,1) 100%)
+    background: linear-gradient(to bottom,  rgba(239,239,239,0) 0%,rgba(239,239,239,1) 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00efefef', endColorstr='#efefef',GradientType=0 )
+    z-index: 0
 
 section#latest
   h2#divider
@@ -296,91 +322,80 @@ section#latest
     text-align: center
     background: $light-grey
     padding: 10px
-    width: 180px
-    margin: -43px auto 25px auto
+    width: 200px
+    margin: -43px auto 55px auto
 
   hr#sides
     border: 3px solid $brand-red
-    margin-top: 40px
+    margin-top: 75px
 
+div.pagination
+  margin: 30px
+  text-align: center
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#container
-  width: 95%
-  max-width: 700px
-  margin: 50px auto
-  height: 200px
-  overflow: hidden
-  transition: 0.2s
-  z-index: 4
-  position: relative
-
-#container:hover
-  margin-top: 40px
-
-
-.bar:hover
-  margin-top: 0px !important
-
-.bar
-  width: 16.666%
-  float: left
-  margin-top: -180px
-  transition: 0.2s
-  transition-timing-function: ease-out
-
-  .spacer
-    height: 100px
-
-  .color
-    height: 200px
-    display: flex
-    justify-content: center
-    align-items: center
-
-  h5
-    transform: rotate(90deg)
-    color: #fafafa
-    font-family: oswald
+  a
+    padding: 15px
+    font-family: $p-stack
+    color: $text
     text-transform: uppercase
-    font-size: 2em
-    pointer-events: none
+    border-radius: 3px
+    margin: 5px
+    font-size: 0.8em
+    transition: 0.1s
+    border: 0.5px solid #dfdfdf
 
-  .spacer
-    height: 200px
+    i
+      margin: 3px
 
-#one
-  background-color: #a73b4b
+  a:hover
+    text-decoration: none
+    background-color: #dfdfdf
 
-#two
-  background-color: #9bce6f
 
-#three
-  background-color: #98509c
+section#menu
+  height: 100%
+  max-width: 400px
+  position: fixed
+  left: -400px
+  top: 0
+  right: 0
+  background-color: $background
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.3)
+  z-index: 99
+  transition: 0.2s
+  padding: 20px
+  box-sizing: border-box
 
-#four
-  background-color: #e78357
+  i.fa-times
+    color: $mid-grey
+    cursor: pointer
+    transition: 0.1s
+    position: absolute
+    right: 20px
+    top: 20px
 
-#five
-  background-color: #68bcbb
+  i.fa-times:hover
+    transform: scale(1.1,1.1)
 
-#six
-  background-color: #3c3a3a
+
+
+section#overlay
+  display: none
+  position: absolute
+  top: 0
+  right: 0
+  left: 0
+  bottom: 0
+  background-color: rgba(255,255,255,0.8)
+  filter: blur(2px)
+  -webkit-filter: blur(2px)
+  z-index: 50
+  transition: 0.2s
+
+section#menu.on
+  left: 0px
+  transition: 0.2s
+
+section#overlay.on
+  display: block !important
+  transition: 0.2s

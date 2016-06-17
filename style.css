@@ -7,5 +7,6 @@ Description: A moden magazine theme for Smoke Magazine.
 Version: 1.0
 */
 
-@import url("css/responsive.css");
+
 @import url("css/main.css");
+@import url("css/responsive.css");

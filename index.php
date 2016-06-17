@@ -1,9 +1,23 @@
 <?php get_header(); ?>
 
+<?php get_template_part( "menu-panel" ); ?>
+
 <?php get_template_part( "masthead" ); ?>
 
 <!-- A section displaying three featured posts -->
 <section id="featured">
+
+  <?php
+  function displayRandom() {
+      $photoAreas = array("/bg1.jpg", "/bg2.jpg", "/bg3.jpg");
+      $randomNumber = rand(0, (count($photoAreas) - 1));
+      echo $photoAreas[$randomNumber];
+  }
+?>
+
+  <div id="bg" style="background-image: url(<?php bloginfo('template_directory'); ?>/img/<?php displayRandom(); ?>"></div>
+  <div id="grad"></div>
+
   <div class="container">
     <div class="postbox">
     <?php
@@ -100,6 +114,10 @@ $feat = $feat[0];
       };
     ?>
     </div>
+  </div>
+  <div class="pagination">
+    <?php previous_posts_link( '<i class="fa fa-caret-left"></i> Newer articles' ); ?>
+    <?php next_posts_link( 'Older articles <i class="fa fa-caret-right"></i>' ); ?>
   </div>
 </section>
 

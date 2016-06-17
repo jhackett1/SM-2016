@@ -3,11 +3,11 @@
     width: 50% !important; }
 
   div.post.hero {
-    flex-direction: column !important; }
+    flex-direction: column; }
     div.post.hero div.img, div.post.hero div.meta {
-      width: 100% !important; }
+      width: 100%; }
     div.post.hero div.img {
-      height: 250px !important; } }
+      height: 250px; } }
 @media (max-width: 650px) {
   div.sidebyside {
     width: 100% !important; } }

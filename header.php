@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<section id="overlay"></section>
+
 <header id="normal">
   <div class="container">
     <nav>
