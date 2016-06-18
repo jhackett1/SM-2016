@@ -14,14 +14,19 @@ $feat = $feat[0];
 
       ?>
 
-        <section class="single-header" style="background-image:url(<?php echo $feat; ?>) ">
-          <h3><?php the_category(); ?></h3>
-          <h2><?php the_title(); ?></h2>
+        <section class="single-header">
+          <div class="meta">
+            <div class="container">
+              <h3><?php the_category(); ?></h3>
+              <h2><?php the_title(); ?></h2>
+            </div>
+          </div>
+          <div class="img" style="background-image:url(<?php echo $feat; ?>) "></div>
         </section>
 
         <article>
           <div class="container">
-            <hr>
+
             <h5><?php the_date();?> | By <?php the_author(); ?></h5>
             <p><?php the_content(); ?></p>
           </div>

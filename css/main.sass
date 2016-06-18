@@ -50,8 +50,9 @@ header
   background: #dfdfdf
   width: 100%
   border-bottom: 0.5px solid #dfdfdf
-  z-index: 30
+  z-index: 60
   padding: 10px 0px 10px 0px
+  position: relative
 
   div.container
     display: flex
@@ -90,7 +91,7 @@ section#masthead, footer
   text-align: center
 
 .fixed
-  position: fixed
+  position: fixed !important
   z-index: 7
   top: 0
   width: 100%
@@ -102,6 +103,7 @@ section#masthead
   border-top: 0.5px solid #dfdfdf
   border-bottom: 0.5px solid #dfdfdf
   z-index: 60
+  position: relative
 
   a:hover
     text-decoration: none
@@ -488,18 +490,74 @@ section#overlay.on
   transition: 0.2s
 
 section.single-header
-  height: 100%
-  background-size: cover
-  background-position: center
+  height: 100vh
+  width: 100%
+  position: relative
+  margin-top: -106px
+  z-index: 3
+
+  div.meta
+    position: absolute
+    bottom: 0px
+    width: 100%
+    background: rgba(255,255,255,0.5)
+
+    div.container
+      margin: 30px auto 30px auto
+
+      h2
+        font-size: 4em
+        color: $text
+
+      h3 li
+        list-style: none
+        margin-bottom: 9px
+
+      h3 a
+        font-family: $p-stack
+        color: $background
+        background-color: $brand-red
+        padding: 5px
+        font-weight: 100
+
+  div.img
+    background-size: cover
+    background-position: center
+    position: absolute
+    top: -3px
+    left: -3px
+    right: -3px
+    bottom: -3px
+    height: 100%
+    width: 100%
+    // filter: ssaturate(0.5) brightness(1.7) contrast(0.7)
+    // -webkit-filter: saturate(0.5) brightness(1.7) contrast(0.7)
+    opacity: 0.7
+    z-index: -1
 
 article
   color: $text
-  margin: 30px
+  margin-top: 50px
 
-  p
+  h5
+    color: $mid-grey
+    font-weight: 100
+    text-transform: uppercase
+    font-family: $p-stack
+    margin-bottom: 40px
+
+  p, ul
     font-size: 1.1em
     margin-bottom: 20px
     color: $text
+    max-width: 550px
+    font-family: $p-stack
+
+    a
+      color: $brand-red
+
+    a:hover
+      text-decoration: underline
 
   img
     width: 100%
