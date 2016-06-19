@@ -4,6 +4,21 @@
 
 //Styling for tablets and smaller
 @media (max-width: 770px)
+
+  div.container.single
+    flex-direction: column
+
+    div.sidebar
+      width: 100%
+      padding: 0px
+      margin-top: 20px
+
+  article
+    width: 100%
+
+    h2
+      font-size: 2em
+
   div.grid-item
     width: 50% !important
 
@@ -19,6 +34,9 @@
   .mobilehide
     display: none !important
 
+  .mobileshow
+    display: block !important
+
   section#masthead
     div.container
       flex-direction: column
@@ -30,6 +48,12 @@
       div:last-of-type
         display: none
 
+  section#featured
+    padding-top: 5px
+
+  div.post.hero div.meta h3
+    font-size: 2em
+
 //Styling for phones and smaller
 @media (max-width: 650px)
   div.sidebyside
@@ -40,12 +64,17 @@
     max-width: 100%
     left: -100%
 
+    hr
+      display: none
+
     nav:first-of-type
       ul
         li
           font-size: 1em !important
 
     nav:nth-of-type(2)
+      column-count: 2
+
       ul
         li
           font-size: 0.8em !important

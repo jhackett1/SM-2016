@@ -5,11 +5,11 @@
     console.log(navpos.top);
       jQuery(window).bind('scroll', function() {
         if (jQuery(window).scrollTop() > navpos.top) {
-          jQuery('#masthead').addClass('fixed');
+          jQuery('#masthead').addClass('fixie');
           jQuery('#spacer').addClass('on');
          }
          else {
-          jQuery('#masthead').removeClass('fixed');
+          jQuery('#masthead').removeClass('fixie');
           jQuery('#spacer').removeClass('on');
          }
       });
@@ -29,6 +29,17 @@
       jQuery("#overlay").removeClass("on");
     });
 
+    //Tabbed widget scripting
+
+    jQuery('ul.tabs li').click(function(){
+  		var tab_id = jQuery(this).attr('data-tab');
+
+  		jQuery('ul.tabs li').removeClass('current');
+  		jQuery('.tab-content').removeClass('current');
+
+  		jQuery(this).addClass('current');
+  		jQuery("#"+tab_id).addClass('current');
+  	})
 
 
   });

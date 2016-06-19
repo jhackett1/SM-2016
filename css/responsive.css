@@ -1,4 +1,16 @@
 @media (max-width: 770px) {
+  div.container.single {
+    flex-direction: column; }
+    div.container.single div.sidebar {
+      width: 100%;
+      padding: 0px;
+      margin-top: 20px; }
+
+  article {
+    width: 100%; }
+    article h2 {
+      font-size: 2em; }
+
   div.grid-item {
     width: 50% !important; }
 
@@ -12,13 +24,22 @@
   .mobilehide {
     display: none !important; }
 
+  .mobileshow {
+    display: block !important; }
+
   section#masthead div.container {
     flex-direction: column; }
     section#masthead div.container div:first-of-type {
       order: 2;
       width: 100%; }
     section#masthead div.container div:last-of-type {
-      display: none; } }
+      display: none; }
+
+  section#featured {
+    padding-top: 5px; }
+
+  div.post.hero div.meta h3 {
+    font-size: 2em; } }
 @media (max-width: 650px) {
   div.sidebyside {
     width: 100% !important; }
@@ -27,10 +48,14 @@
     width: 100%;
     max-width: 100%;
     left: -100%; }
+    section#menu hr {
+      display: none; }
     section#menu nav:first-of-type ul li {
       font-size: 1em !important; }
-    section#menu nav:nth-of-type(2) ul li {
-      font-size: 0.8em !important; } }
+    section#menu nav:nth-of-type(2) {
+      column-count: 2; }
+      section#menu nav:nth-of-type(2) ul li {
+        font-size: 0.8em !important; } }
 @media (max-width: 500px) {
   div.grid-item {
     width: 100% !important; } }

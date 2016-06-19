@@ -39,3 +39,29 @@ add_filter('user_can_richedit' , create_function('' , 'return false;') , 50);
 		return '...';
 	}
 	add_filter('excerpt_more', 'new_excerpt_more');
+
+//Reading time
+
+function reading_time(){
+	$content = get_post_field( 'post_content', $post->ID );
+	$word_count = str_word_count( strip_tags( $content ) );
+	$minutes_raw = ($word_count / 200);
+	$minutes_rounded = ceil($minutes_raw);
+	echo $minutes_rounded . " minute read";
+}
+
+//Set up sidebar and other widgetised areas
+
+function sidebar() {
+
+	register_sidebar( array(
+		'name'          => 'Posts sidebar',
+		'id'            => 'sidebar',
+		'before_widget' => '<div class="widget">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h4>',
+		'after_title'   => '</h4>',
+	) );
+
+}
+add_action( 'widgets_init', 'sidebar' );
