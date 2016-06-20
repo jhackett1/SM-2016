@@ -541,13 +541,15 @@ article {
   article img {
     width: 100% !important;
     margin: 0px;
-    max-width: 100%; }
+    max-width: 100%;
+    border-bottom: 3px solid #6f1523; }
   article div.wp-caption {
     margin: 20px 0px 20px 0px;
     max-width: 100%; }
     article div.wp-caption img {
       height: auto !important;
-      width: 100%; }
+      width: 100%;
+      border-bottom: 3px solid #6f1523; }
     article div.wp-caption p.wp-caption-text {
       text-transform: uppercase;
       color: #505050;
