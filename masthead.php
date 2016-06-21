@@ -8,7 +8,7 @@
       <h1 id="site-title"><span>Smoke</span> Magazine</h1>
     </a>
 
-    <div><i class="fa fa-search"></i>Search</div>
+    <div id="search-button"><i class="fa fa-search"></i>Search</div>
   </div>
 </section>
 

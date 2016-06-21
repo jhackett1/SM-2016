@@ -327,7 +327,7 @@ section#menu {
   right: 0;
   background-color: #fafafa;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-  z-index: 99;
+  z-index: 997;
   transition: 0.2s;
   padding: 20px;
   box-sizing: border-box;
@@ -399,7 +399,7 @@ section#menu {
         text-transform: uppercase;
         font-weight: 100;
         font-size: 1.2em;
-        padding: 10px 5px;
+        padding: 10px 15px 10px 15px;
         transition: 0.1s;
         display: inline; }
         section#menu nav:last-of-type ul li a {
@@ -415,7 +415,7 @@ section#overlay {
   background-color: rgba(255, 255, 255, 0.8);
   filter: blur(2px);
   -webkit-filter: blur(2px);
-  z-index: 50;
+  z-index: 995;
   transition: 0.2s; }
 
 section#menu.on {
@@ -521,7 +521,8 @@ article {
     margin: 20px; }
   article h2 {
     font-size: 3em;
-    margin: 20px; }
+    margin: 20px;
+    color: #2d2d2d; }
   article h3 ul {
     list-style-type: none;
     margin: 20px 20px 10px 20px; }
@@ -575,6 +576,15 @@ article {
     margin-left: 20px;
     margin-right: 20px;
     max-width: 100%; }
+  article div.content blockquote, article div.content p blockquote {
+    max-width: 40%;
+    float: right; }
+    article div.content blockquote p, article div.content p blockquote p {
+      font-size: 2em;
+      font-family: Oswald, sans serif;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin: 30px 0px 30px 20px; }
   article div.content p {
     margin: 0px 20px 20px 20px;
     font-size: 1.1em;
@@ -583,7 +593,8 @@ article {
       color: #9c1f32;
       text-decoration: none; }
     article div.content p a:hover {
-      color: #6f1523; }
+      color: #6f1523;
+      text-decoration: underline; }
 
 h2#archives {
   font-size: 3em;
@@ -593,5 +604,50 @@ hr#archives {
   width: 60px;
   border: 4px solid #9c1f32;
   margin: 30px 10px 30px 10px; }
+
+div#search-modal {
+  z-index: 996;
+  background-color: #efefef;
+  padding: 20px;
+  border: 0.5px solid #dfdfdf;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  border-radius: 2px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  font-family: Lato, serif;
+  display: none;
+  transition: 0.1s; }
+  div#search-modal form input#s {
+    padding: 13px;
+    font-size: 1em;
+    text-transform: uppercase;
+    font-family: Lato, serif;
+    font-weight: 100;
+    border: 0px;
+    color: #6f1523;
+    min-width: 300px; }
+  div#search-modal form input#searchsubmit {
+    padding: 13px 15px;
+    color: #fafafa;
+    background-color: #9c1f32;
+    border: 0px;
+    font-size: 1em;
+    font-family: Lato, serif;
+    cursor: pointer; }
+  div#search-modal form input#searchsubmit:hover {
+    background-color: #6f1523; }
+
+div#search-modal.on {
+  display: block; }
+
+h2#archives span {
+  font-weight: 100 !important; }
+
+p#noresults {
+  margin: 10px; }
 
 /*# sourceMappingURL=main.css.map */

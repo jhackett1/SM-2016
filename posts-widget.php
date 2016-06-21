@@ -70,7 +70,7 @@
           <?php endwhile;
           wp_reset_postdata();
         else : ?>
-          <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+          <p><?php _e( '<p style="margin: 10px; margin-top: 20px">Sorry, no posts matched your criteria.</p>' ); ?></p>
         <?php endif; ?>
 
       </ul>

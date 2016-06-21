@@ -20,7 +20,9 @@
         ?></h2><?php
       }
       else if (is_author()){
+        echo 'Author: <span>';
         echo get_the_author();
+        echo '</span>';
         ?></h2><?php
       }
       else if (is_year()){

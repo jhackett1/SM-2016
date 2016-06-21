@@ -1,4 +1,7 @@
 @media (max-width: 770px) {
+  div#search-modal form input#searchsubmit {
+    padding: 13px 12px; }
+
   div.container.single {
     flex-direction: column; }
     div.container.single div.sidebar {
@@ -55,7 +58,21 @@
     section#menu nav:nth-of-type(2) {
       column-count: 2; }
       section#menu nav:nth-of-type(2) ul li {
-        font-size: 0.8em !important; } }
+        font-size: 0.8em !important; }
+
+  h2#archives {
+    font-size: 2.3em;
+    text-align: center; }
+
+  hr#archives {
+    margin: 20px auto; }
+
+  article div.content blockquote, article div.content p blockquote {
+    max-width: 100%;
+    float: none !important; }
+    article div.content blockquote p, article div.content p blockquote p {
+      margin: 30px 0px 30px 0px !important;
+      text-align: center; } }
 @media (max-width: 500px) {
   div.grid-item {
     width: 100% !important; } }
