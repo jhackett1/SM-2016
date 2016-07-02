@@ -65,3 +65,199 @@ function sidebar() {
 
 }
 add_action( 'widgets_init', 'sidebar' );
+
+
+//Set custom widgets
+
+	class latest_issue extends WP_Widget {
+		function __construct(){
+			parent::__construct(false, $name =  __('Smoke Latest Issue'));
+		}
+		function form( $instance ){
+			?>
+			<p>
+				<label for="<?php echo $this->get_field_id('title'); ?>">Title:</label>
+				<input id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo esc_attr($instance['title']); ?>" ></input>
+			</p><p>
+				<label for="<?php echo $this->get_field_id('cat'); ?>">Source category number (default is 31):</label>
+				<input id="<?php echo $this->get_field_id('cat'); ?>" name="<?php echo $this->get_field_name('cat'); ?>" value="<?php echo esc_attr($instance['cat']); ?>" ></input>
+			</p>
+			<?php
+		}
+
+		function widget($args, $instance){
+
+			extract ( $args, EXTR_SKIP);
+			$title = ( $instance['title']) ? $instance['title'] : '';
+			$category = ( $instance['title']) ? $instance['cat'] : '31';
+
+			echo '<div class="widget">' ;
+			echo '<h4>' . $title . '</h4>' ;
+
+			$query = new WP_Query( array( 'cat' => $category, 'posts_per_page' => 1 ) );
+			// The Loop
+			while ( $query->have_posts() ) {
+				$query->the_post();
+				$feat = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
+				$feat = $feat[0];
+				?>
+				<a class="latest-cover" href="<?php the_permalink(); ?>">
+		      <img id="latest-cover" src="<?php echo $feat; ?>"/>
+				</a>
+				<?php
+			}
+			wp_reset_postdata();
+			echo '</div>' ;
+		}
+	}
+
+add_action('widgets_init', function(){
+	register_widget('latest_issue');
+});
+
+class smoke_related_posts extends WP_Widget {
+	function __construct(){
+		parent::__construct(false, $name =  __('Smoke Related Posts'));
+	}
+	function form(){
+
+	}
+	function update(){
+
+	}
+	function widget($args, $instance){ ?>
+		<div class="widget posts-widget">
+		    <ul class="tabs">
+		      <li class="tab-link current" data-tab="tab-1">Related</li>
+		      <li class="tab-link" data-tab="tab-2">Recent</li>
+		    </ul>
+		    <div id="tab-1" class="tab-content current">
+		      <ul class="widget-posts-list">
+		      <?php
+		      // Related posts query
+		      $orig_post = $post;
+		      global $post;
+		      $categories = get_the_category($post->ID);
+		      if ($categories) {
+		      $category_ids = array();
+		      foreach($categories as $individual_category) $category_ids[] = $individual_category->term_id;
+		      $args = array(
+		        'category__in' => $category_ids,
+		        'post__not_in' => array($post->ID),
+		        'posts_per_page'=> 4, // Number of related posts that will be displayed.
+		        'caller_get_posts'=>1,
+		        'orderby'=>'post_date' // Randomize the posts
+		      );
+		      $related_query = new WP_Query( $args );
+		      if ( $related_query->have_posts() ):
+		          while ( $related_query->have_posts() ): $related_query->the_post();
+		       $feat = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'small' );
+		      $feat = $feat[0];
+		          ?>
+		            <li>
+		                <img src="<?php echo $feat; ?>"/>
+		                <div>
+		                  <h5><?php the_title(); ?></h5>
+		                  <p><?php the_date(); ?></p>
+		                </div>
+		                <a href="<?php the_permalink(); ?>"></a>
+		            </li>
+		          <?php endwhile;
+		          wp_reset_postdata();
+		        else : ?>
+		          <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+		        <?php endif;  }; ?>
+		      </ul>
+		    </div>
+		    <div id="tab-2" class="tab-content">
+		      <ul class="widget-posts-list">
+		        <?php
+		        // Recent posts query
+		        $the_query = new WP_Query( array( 'posts_per_page' => 4 ) );
+		        if ( $the_query->have_posts() ):
+		            while ( $the_query->have_posts() ): $the_query->the_post();                              $feat = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'small' );
+		            $feat = $feat[0];
+		          ?>
+		            <li>
+		                <img src="<?php echo $feat; ?>"/>
+		                <div>
+		                  <h5><?php the_title(); ?></h5>
+		                  <p><?php the_date(); ?></p>
+		                </div>
+		                <a href="<?php the_permalink(); ?>"></a>
+		            </li>
+		          <?php endwhile;
+		          wp_reset_postdata();
+		        else : ?>
+		          <p><?php _e( '<p style="margin: 10px; margin-top: 20px">Sorry, no posts matched your criteria.</p>' ); ?></p>
+		        <?php endif; ?>
+		      </ul>
+		    </div>
+		</div>
+		<?php
+	}
+}
+
+add_action('widgets_init', function(){
+register_widget('smoke_related_posts');
+});
+
+
+class smoke_twitter_feed extends WP_Widget {
+	function __construct(){
+		parent::__construct(false, $name =  __('Smoke Twitter Feed'));
+	}
+	function form(){
+
+	}
+	function update(){
+
+	}
+	function widget($args, $instance){
+		echo '<div class="widget mobilehide">' ;
+		echo '<h4>Tweets</h4>' ;
+		?>
+			<a class="twitter-timeline" data-chrome="transparent noheader" data-height="500" href="https://twitter.com/dinosaurlord/lists/smoke">A Twitter List by dinosaurlord</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+		<?php
+		echo '</div>' ;
+	}
+}
+add_action('widgets_init', function(){
+register_widget('smoke_twitter_feed');
+});
+
+
+
+
+//Responsive youtube embeds
+
+add_filter( 'embed_oembed_html', 'custom_oembed_filter', 10, 4 ) ;
+
+function custom_oembed_filter($html, $url, $attr, $post_ID) {
+    $return = '<div class="video-container">'.$html.'</div>';
+    return $return;
+}
+
+
+
+
+
+
+//Allow image logo
+
+function themeslug_theme_customizer( $wp_customize ) {
+	$wp_customize->add_section( 'themeslug_logo_section' , array(
+		'title'       => __( 'Logo', 'themeslug' ),
+		'priority'    => 30,
+		'description' => 'Upload a logo to replace the default site name and description in the header',
+	) );
+
+	$wp_customize->add_setting( 'themeslug_logo' );
+
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themeslug_logo', array(
+	    'label'    => __( 'Logo', 'themeslug' ),
+	    'section'  => 'themeslug_logo_section',
+	    'settings' => 'themeslug_logo',
+	) ) );
+}
+add_action( 'customize_register', 'themeslug_theme_customizer' );

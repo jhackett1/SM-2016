@@ -138,9 +138,12 @@ section#masthead
     div:hover
       background-color: #dfdfdf
 
+    img
+      max-height: 40px
+
     h1
       font-size: 2em
-      color: $text
+      color: $brand-red
       z-index: 4
       transition: 0.1s
 
@@ -305,6 +308,9 @@ footer .container
     text-transform: uppercase
     font-size: 0.7em
     margin-bottom: 5px
+    margin-top: 20px
+
+  img#union-logo
     margin-top: 20px
 
 section#featured
@@ -566,6 +572,7 @@ div.sidebar
     padding: 10px
     font-family: $p-stack
     color: $text
+    overflow: hidden
 
     h4
       text-align: center
@@ -621,6 +628,20 @@ article
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1)
   padding: 20px 0px 20px 0px
   flex: 1
+
+  div.video-container
+    position: relative
+    padding-bottom: 56.25%
+    padding-top: 30px
+    height: 0
+    overflow: hidden
+
+    iframe
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
 
   div#disqus_thread
     margin: 20px
@@ -777,3 +798,80 @@ h2#archives span
 
 p#noresults
   margin: 10px
+
+a.latest-cover img#latest-cover
+  width: 100%
+  transition: 0.1s
+
+a.latest-cover:hover img#latest-cover
+  filter: brightness(0.8)
+  -webkit-filter: brightness(0.8)
+
+//Related posts strip on single.php
+
+section.related-pane
+  background-color: #dfdfdf
+  width: 100%
+  margin: 0px 0px 40px 0px
+  padding: 40px 0px
+  color: $text
+
+  h3
+    font-size: 1.5em
+
+  hr
+    width: 50px
+    border: 3px solid $brand-red
+    margin: 10px 0px 20px 0px
+
+  div.related-postbox
+    width: 100%
+    margin: 20px auto
+    display: flex
+    flex-direction: row
+    max-height: 400px
+    overflow: hidden
+
+    div.tile:hover
+      background-color: #efefef
+
+      img
+        filter: brightness(0.95)
+        -webkit-filter: brightness(0.95)
+        transition: 0.1s
+
+    div.tile:last-of-type
+      margin-right: 0px
+
+    div.tile
+      margin-right: 15px
+      background-color: $background
+      padding-bottom: 10px
+      position: relative
+      -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1)
+      -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1)
+      box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1)
+      width: 25%
+
+      a
+        position: absolute
+        top: 0
+        right: 0
+        left: 0
+        bottom: 0
+        z-index: 5
+
+      div
+        padding: 20px
+
+        h5
+          font-size: 1.1em
+
+        p
+          text-transform: uppercase
+          color: $mid-grey
+          font-size: 0.8em
+          margin-bottom: 8px
+
+      img
+        width: 100%

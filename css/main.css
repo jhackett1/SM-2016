@@ -107,9 +107,11 @@ section#masthead {
         margin-right: 10px; }
     section#masthead div.container div:hover {
       background-color: #dfdfdf; }
+    section#masthead div.container img {
+      max-height: 40px; }
     section#masthead div.container h1 {
       font-size: 2em;
-      color: #2d2d2d;
+      color: #9c1f32;
       z-index: 4;
       transition: 0.1s; }
       section#masthead div.container h1 span {
@@ -253,6 +255,8 @@ footer .container {
     text-transform: uppercase;
     font-size: 0.7em;
     margin-bottom: 5px;
+    margin-top: 20px; }
+  footer .container img#union-logo {
     margin-top: 20px; }
 
 section#featured {
@@ -472,7 +476,8 @@ div.sidebar {
     border-radius: 2px;
     padding: 10px;
     font-family: Lato, serif;
-    color: #2d2d2d; }
+    color: #2d2d2d;
+    overflow: hidden; }
     div.sidebar div.widget h4 {
       text-align: center;
       color: #2d2d2d;
@@ -517,6 +522,18 @@ article {
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
   padding: 20px 0px 20px 0px;
   flex: 1; }
+  article div.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden; }
+    article div.video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; }
   article div#disqus_thread {
     margin: 20px; }
   article h2 {
@@ -649,5 +666,68 @@ h2#archives span {
 
 p#noresults {
   margin: 10px; }
+
+a.latest-cover img#latest-cover {
+  width: 100%;
+  transition: 0.1s; }
+
+a.latest-cover:hover img#latest-cover {
+  filter: brightness(0.8);
+  -webkit-filter: brightness(0.8); }
+
+section.related-pane {
+  background-color: #dfdfdf;
+  width: 100%;
+  margin: 0px 0px 40px 0px;
+  padding: 40px 0px;
+  color: #2d2d2d; }
+  section.related-pane h3 {
+    font-size: 1.5em; }
+  section.related-pane hr {
+    width: 50px;
+    border: 3px solid #9c1f32;
+    margin: 10px 0px 20px 0px; }
+  section.related-pane div.related-postbox {
+    width: 100%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    max-height: 400px;
+    overflow: hidden; }
+    section.related-pane div.related-postbox div.tile:hover {
+      background-color: #efefef; }
+      section.related-pane div.related-postbox div.tile:hover img {
+        filter: brightness(0.95);
+        -webkit-filter: brightness(0.95);
+        transition: 0.1s; }
+    section.related-pane div.related-postbox div.tile:last-of-type {
+      margin-right: 0px; }
+    section.related-pane div.related-postbox div.tile {
+      margin-right: 15px;
+      background-color: #fafafa;
+      padding-bottom: 10px;
+      position: relative;
+      -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+      width: 25%; }
+      section.related-pane div.related-postbox div.tile a {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 5; }
+      section.related-pane div.related-postbox div.tile div {
+        padding: 20px; }
+        section.related-pane div.related-postbox div.tile div h5 {
+          font-size: 1.1em; }
+        section.related-pane div.related-postbox div.tile div p {
+          text-transform: uppercase;
+          color: #505050;
+          font-size: 0.8em;
+          margin-bottom: 8px; }
+      section.related-pane div.related-postbox div.tile img {
+        width: 100%; }
 
 /*# sourceMappingURL=main.css.map */
