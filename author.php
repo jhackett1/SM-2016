@@ -4,40 +4,31 @@
 
 <?php get_template_part( "masthead" ); ?>
 
-
-
 <section id="latest">
   <div class="container">
 
-    <h2 id="archives"><?php
-      if (is_category()) {
-        single_cat_title();
-    		?></h2><?php
-      }
-      else if (is_tag()){
-    		echo 'Topic: ';
-        single_tag_title();
-        ?></h2><?php
-      }
-      else if (is_year()){
-        echo get_the_date();
-        ?></h2><?php
-      }
-      else if (is_month()){
-        echo get_the_date('F Y');
-        ?></h2><?php
-      }
-      else if (is_year()){
-        echo get_the_date('Y');
-        ?></h2><?php
-      }
-      else {
-        echo 'Archives';
-        ?></h2><?php
-      }
-    ?></h2>
-    <hr id="archives">
+    <div class="author-meta">
+      <?php echo get_avatar( $id_or_email, $size, $default, $alt, $args ); ?>
+      <h2><?php echo get_the_author(); ?></h2>
 
+      <p>
+
+      <?php if(get_the_author_meta('twitter', $user->ID)){?>
+        <a target="blank" href="http://twitter.com/<?php echo  get_the_author_meta('twitter', $user->ID) ?>">@<?php echo  get_the_author_meta('twitter', $user->ID) ?></a>
+      <?php }; ?>
+      <?php if(get_the_author_meta('twitter', $user->ID) && get_the_author_meta('twitter', $user->ID)){?>
+      &middot;
+      <?php }; ?>
+      <?php if(get_the_author_meta('twitter', $user->ID)){?>
+        <a href="mailto:<?php echo  get_the_author_meta('mail', $user->ID) ?>"><i class="fa fa-envelope"></i></a></p>
+      <?php }; ?>
+
+      <p><?php echo  get_the_author_meta('description') ?></p>
+
+
+      <hr id="author-archives">
+
+    </div>
 
     <div class="postbox grid">
     <?php

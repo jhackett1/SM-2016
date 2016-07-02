@@ -203,6 +203,50 @@ register_widget('smoke_related_posts');
 });
 
 
+class smoke_subscribe extends WP_Widget {
+	function __construct(){
+		parent::__construct(false, $name =  __('Smoke Subscribe'));
+	}
+	function form(){
+	}
+	function update(){
+	}
+	function widget($args, $instance){
+		echo '<div class="widget red mobilehide">' ;
+		echo '<h4>Get involved</h4>' ;
+		?>
+		<p>Want to contribute? Get on the mailing list.</p>
+		<!-- Begin MailChimp Signup Form -->
+		<link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
+		<style type="text/css">
+			#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+			/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+			   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+		</style>
+		<div id="mc_embed_signup">
+		<form action="//media.us13.list-manage.com/subscribe/post?u=bae3fdf7dc6f735f144847240&amp;id=ffaab9e48d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+		    <div id="mc_embed_signup_scroll">
+
+			<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" required>
+		    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+		    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_bae3fdf7dc6f735f144847240_ffaab9e48d" tabindex="-1" value=""></div>
+		    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+		    </div>
+		</form>
+		</div>
+
+		<!--End mc_embed_signup-->
+		<?php
+		echo '</div>' ;
+	}
+}
+add_action('widgets_init', function(){
+register_widget('smoke_subscribe');
+});
+
+
+
+
 class smoke_twitter_feed extends WP_Widget {
 	function __construct(){
 		parent::__construct(false, $name =  __('Smoke Twitter Feed'));
@@ -217,7 +261,7 @@ class smoke_twitter_feed extends WP_Widget {
 		echo '<div class="widget mobilehide">' ;
 		echo '<h4>Tweets</h4>' ;
 		?>
-			<a class="twitter-timeline" data-chrome="transparent noheader" data-height="500" href="https://twitter.com/dinosaurlord/lists/smoke">A Twitter List by dinosaurlord</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+			<a class="twitter-timeline" data-chrome="transparent noheader nofooter" data-height="500" href="https://twitter.com/dinosaurlord/lists/smoke">A Twitter List by dinosaurlord</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 		<?php
 		echo '</div>' ;
 	}
@@ -225,8 +269,6 @@ class smoke_twitter_feed extends WP_Widget {
 add_action('widgets_init', function(){
 register_widget('smoke_twitter_feed');
 });
-
-
 
 
 //Responsive youtube embeds
@@ -237,9 +279,6 @@ function custom_oembed_filter($html, $url, $attr, $post_ID) {
     $return = '<div class="video-container">'.$html.'</div>';
     return $return;
 }
-
-
-
 
 
 
@@ -261,3 +300,44 @@ function themeslug_theme_customizer( $wp_customize ) {
 	) ) );
 }
 add_action( 'customize_register', 'themeslug_theme_customizer' );
+
+
+
+add_action( 'show_user_profile', 'my_show_extra_profile_fields' );
+add_action( 'edit_user_profile', 'my_show_extra_profile_fields' );
+
+function my_show_extra_profile_fields( $user ) { ?>
+
+	<table class="form-table">
+
+		<tr>
+			<th><label for="twitter">Twitter</label></th>
+
+			<td>
+				<input type="text" name="twitter" id="twitter" value="<?php echo esc_attr( get_the_author_meta( 'twitter', $user->ID ) ); ?>" class="regular-text" /><br />
+				<span class="description">Please enter your Twitter username, without the @ symbol.</span>
+			</td>
+		</tr>
+		<tr>
+			<th><label for="mail">Public email:</label></th>
+
+			<td>
+				<input type="text" name="mail" id="mail" value="<?php echo esc_attr( get_the_author_meta( 'mail', $user->ID ) ); ?>" class="regular-text" /><br />
+				<span class="description">Please enter your Smoke Media email, if you wish it to be publicly visible. This does NOT need to be the same as the email your account is registered to.</span>
+			</td>
+		</tr>
+	</table>
+<?php }
+
+add_action( 'personal_options_update', 'my_save_extra_profile_fields' );
+add_action( 'edit_user_profile_update', 'my_save_extra_profile_fields' );
+
+function my_save_extra_profile_fields( $user_id ) {
+
+	if ( !current_user_can( 'edit_user', $user_id ) )
+		return false;
+
+	/* Copy and paste this line for additional fields. Make sure to change 'twitter' to the field ID. */
+	update_usermeta( $user_id, 'twitter', $_POST['twitter'] );
+	update_usermeta( $user_id, 'mail', $_POST['mail'] );
+}
