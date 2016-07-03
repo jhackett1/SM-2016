@@ -60,7 +60,7 @@ header {
     font-family: Oswald, sans serif;
     font-weight: 400;
     text-transform: uppercase;
-    margin-right: 5px; }
+    margin-right: 7px; }
 
 div#spacer.on {
   width: 100%;
@@ -82,7 +82,8 @@ section#masthead {
   border-top: 0.5px solid #dfdfdf;
   border-bottom: 0.5px solid #dfdfdf;
   z-index: 60;
-  position: relative; }
+  position: relative;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1); }
   section#masthead a:hover {
     text-decoration: none; }
   section#masthead div.container {
@@ -149,7 +150,8 @@ div.post.hero {
     background-size: cover; }
   div.post.hero div.meta {
     width: 33%;
-    padding-bottom: 40px; }
+    padding-bottom: 40px;
+    min-height: 300px; }
     div.post.hero div.meta h3 {
       font-size: 2.5em; }
 
@@ -331,7 +333,7 @@ section#menu {
   right: 0;
   background-color: #fafafa;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-  z-index: 9999999;
+  z-index: 999999999;
   transition: 0.2s;
   padding: 20px;
   box-sizing: border-box;
@@ -475,7 +477,8 @@ div.sidebar {
       color: #fafafa; }
     div.sidebar div.widget.red p {
       text-align: center;
-      margin: 14px; }
+      margin: 14px;
+      font-weight: 100; }
     div.sidebar div.widget.red div#mc_embed_signup {
       background: #9c1f32;
       text-align: center; }
@@ -489,7 +492,7 @@ div.sidebar {
           width: 100%;
           border-radius: 1px;
           background: #9c1f32;
-          border: 1px solid #fafafa;
+          border: 0.5px solid #fafafa;
           color: #fafafa;
           font-family: Lato, serif;
           text-align: center; }
@@ -502,6 +505,8 @@ div.sidebar {
           padding: 5px;
           box-sizing: content-box;
           font-size: 0.9em; }
+        div.sidebar div.widget.red div#mc_embed_signup form input.button:hover {
+          background: #efefef !important; }
   div.sidebar div.widget {
     background-color: #fafafa;
     margin-bottom: 20px;
@@ -556,12 +561,18 @@ article {
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
   padding: 20px 0px 20px 0px;
   flex: 1; }
+  article p.nocomments {
+    color: #505050;
+    text-transform: uppercase;
+    margin: 20px;
+    font-size: 0.8em; }
   article div.video-container {
     position: relative;
     padding-bottom: 56.25%;
     padding-top: 30px;
     height: 0;
-    overflow: hidden; }
+    overflow: hidden;
+    margin-bottom: 20px; }
     article div.video-container iframe {
       position: absolute;
       top: 0;
@@ -585,7 +596,7 @@ article {
         font-weight: 100;
         background-color: #9c1f32;
         padding: 3px;
-        font-size: 0.8em;
+        font-size: 0.7em;
         margin-right: 3px; }
     article h3 ul li a:hover {
       background-color: #6f1523;
@@ -596,8 +607,9 @@ article {
     max-width: 100%;
     border-bottom: 3px solid #6f1523; }
   article div.wp-caption {
-    margin: 20px 0px 20px 0px;
-    max-width: 100%; }
+    margin: 20px 0px 40px 0px;
+    max-width: 100%;
+    width: 100% !important; }
     article div.wp-caption img {
       height: auto !important;
       width: 100%;
@@ -641,7 +653,8 @@ article {
   article div.content p {
     margin: 0px 20px 20px 20px;
     font-size: 1.1em;
-    color: #2d2d2d; }
+    color: #2d2d2d;
+    font-weight: 100; }
     article div.content p a {
       color: #9c1f32;
       text-decoration: none; }
@@ -709,8 +722,8 @@ a.latest-cover img#latest-cover {
   transition: 0.1s; }
 
 a.latest-cover:hover img#latest-cover {
-  filter: brightness(0.8);
-  -webkit-filter: brightness(0.8); }
+  filter: brightness(0.9);
+  -webkit-filter: brightness(0.9); }
 
 section.related-pane {
   width: 100%;
@@ -718,6 +731,8 @@ section.related-pane {
   padding: 40px 0px;
   color: #2d2d2d;
   border-top: 0.5px solid #dfdfdf; }
+  section.related-pane div.container {
+    padding: 0px 10px 0px 10px; }
   section.related-pane h3 {
     font-size: 1.5em; }
   section.related-pane hr {

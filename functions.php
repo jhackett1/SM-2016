@@ -28,6 +28,28 @@ add_filter('user_can_richedit' , create_function('' , 'return false;') , 50);
 //Allows featured images
 	 add_theme_support( 'post-thumbnails' );
 
+//New default avatar
+
+	function newgravatar ($avatar_defaults) {
+    $myavatar = get_bloginfo('template_directory') . '/img/swirl.png';
+    $avatar_defaults[$myavatar] = "Build Internet";
+    return $avatar_defaults;
+}
+
+//Change admin theme for new users
+
+	function set_default_admin_color($user_id) {
+	$args = array(
+		'ID' => $user_id,
+		'admin_color' => 'midnight'
+	);
+	wp_update_user( $args );
+}
+add_action('user_register', 'set_default_admin_color');
+
+if ( !current_user_can('manage_options') )
+remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
+
 //Reduce excerpt length
 			 function custom_excerpt_length( $length ) {
 			return 15;
@@ -215,14 +237,9 @@ class smoke_subscribe extends WP_Widget {
 		echo '<div class="widget red mobilehide">' ;
 		echo '<h4>Get involved</h4>' ;
 		?>
-		<p>Want to contribute? Get on the mailing list.</p>
+		<p>Want to contribute? Get on our mailing list.</p>
 		<!-- Begin MailChimp Signup Form -->
 		<link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
-		<style type="text/css">
-			#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
-			/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-			   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-		</style>
 		<div id="mc_embed_signup">
 		<form action="//media.us13.list-manage.com/subscribe/post?u=bae3fdf7dc6f735f144847240&amp;id=ffaab9e48d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 		    <div id="mc_embed_signup_scroll">
