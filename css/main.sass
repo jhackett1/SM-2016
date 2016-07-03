@@ -106,7 +106,7 @@ section#masthead
   background-color: $light-grey
   border-top: 0.5px solid #dfdfdf
   border-bottom: 0.5px solid #dfdfdf
-  z-index: 60
+  z-index: 999
   position: relative
   box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1)
 
@@ -507,7 +507,7 @@ section#overlay
   background-color: rgba(255,255,255,0.8)
   filter: blur(2px)
   -webkit-filter: blur(2px)
-  z-index: 995
+  z-index: 9999
   transition: 0.2s
 
 section#menu.on
@@ -576,6 +576,7 @@ div.sidebar
       text-align: center
       margin: 14px
       font-weight: 100
+      font-family: $p-stack
 
     div#mc_embed_signup
       background: $brand-red
@@ -584,6 +585,7 @@ div.sidebar
       form
         padding: 0px
         margin-top: 10px
+        font-family: $p-stack
 
         ::selection
           background-color: rgba(255,255,255,0.8)
@@ -596,7 +598,6 @@ div.sidebar
           border: 0.5px solid $background
           color: $background
           font-family: $p-stack
-          text-align: center
 
         input.button
           background: $background
@@ -607,6 +608,7 @@ div.sidebar
           padding: 5px
           box-sizing: content-box
           font-size: 0.9em
+          font-family: $p-stack
 
         input.button:hover
           background: $light-grey !important
@@ -686,7 +688,7 @@ article
 
   div.video-container
     position: relative
-    padding-bottom: 56.25%
+    padding-bottom: 52%
     padding-top: 30px
     height: 0
     overflow: hidden
@@ -718,9 +720,11 @@ article
         color: $background
         font-weight: 100
         background-color: $brand-red
-        padding: 3px
+        padding: 3px 6px
         font-size: 0.7em
         margin-right: 3px
+        border-radius: 1px
+        font-size: 0.6em
 
     li a:hover
       background-color: $dark-red
@@ -813,7 +817,7 @@ hr#archives
   margin: 30px 10px 30px 10px
 
 div#search-modal
-  z-index: 996
+  z-index: 999999999
   background-color: #efefef
   padding: 20px
   border: 0.5px solid #dfdfdf

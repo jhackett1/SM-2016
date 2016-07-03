@@ -81,7 +81,7 @@ section#masthead {
   background-color: #efefef;
   border-top: 0.5px solid #dfdfdf;
   border-bottom: 0.5px solid #dfdfdf;
-  z-index: 60;
+  z-index: 999;
   position: relative;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1); }
   section#masthead a:hover {
@@ -421,7 +421,7 @@ section#overlay {
   background-color: rgba(255, 255, 255, 0.8);
   filter: blur(2px);
   -webkit-filter: blur(2px);
-  z-index: 995;
+  z-index: 9999;
   transition: 0.2s; }
 
 section#menu.on {
@@ -478,13 +478,15 @@ div.sidebar {
     div.sidebar div.widget.red p {
       text-align: center;
       margin: 14px;
-      font-weight: 100; }
+      font-weight: 100;
+      font-family: Lato, serif; }
     div.sidebar div.widget.red div#mc_embed_signup {
       background: #9c1f32;
       text-align: center; }
       div.sidebar div.widget.red div#mc_embed_signup form {
         padding: 0px;
-        margin-top: 10px; }
+        margin-top: 10px;
+        font-family: Lato, serif; }
         div.sidebar div.widget.red div#mc_embed_signup form ::selection {
           background-color: rgba(255, 255, 255, 0.8);
           color: #9c1f32; }
@@ -494,8 +496,7 @@ div.sidebar {
           background: #9c1f32;
           border: 0.5px solid #fafafa;
           color: #fafafa;
-          font-family: Lato, serif;
-          text-align: center; }
+          font-family: Lato, serif; }
         div.sidebar div.widget.red div#mc_embed_signup form input.button {
           background: #fafafa;
           margin: 14px auto;
@@ -504,7 +505,8 @@ div.sidebar {
           color: #9c1f32;
           padding: 5px;
           box-sizing: content-box;
-          font-size: 0.9em; }
+          font-size: 0.9em;
+          font-family: Lato, serif; }
         div.sidebar div.widget.red div#mc_embed_signup form input.button:hover {
           background: #efefef !important; }
   div.sidebar div.widget {
@@ -568,7 +570,7 @@ article {
     font-size: 0.8em; }
   article div.video-container {
     position: relative;
-    padding-bottom: 56.25%;
+    padding-bottom: 52%;
     padding-top: 30px;
     height: 0;
     overflow: hidden;
@@ -595,9 +597,11 @@ article {
         color: #fafafa;
         font-weight: 100;
         background-color: #9c1f32;
-        padding: 3px;
+        padding: 3px 6px;
         font-size: 0.7em;
-        margin-right: 3px; }
+        margin-right: 3px;
+        border-radius: 1px;
+        font-size: 0.6em; }
     article h3 ul li a:hover {
       background-color: #6f1523;
       text-decoration: none; }
@@ -673,7 +677,7 @@ hr#archives {
   margin: 30px 10px 30px 10px; }
 
 div#search-modal {
-  z-index: 996;
+  z-index: 999999999;
   background-color: #efefef;
   padding: 20px;
   border: 0.5px solid #dfdfdf;
