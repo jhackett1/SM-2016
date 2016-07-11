@@ -656,9 +656,9 @@ article {
       margin: 30px 0px 30px 20px; }
   article div.content p {
     margin: 0px 20px 20px 20px;
-    font-size: 1.1em;
+    font-size: 1em;
     color: #2d2d2d;
-    font-weight: 100; }
+    font-weight: 400; }
     article div.content p a {
       color: #9c1f32;
       text-decoration: none; }
