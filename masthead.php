@@ -7,7 +7,13 @@
     <a href="<?php bloginfo("url"); ?>">
 
       <?php if ( get_theme_mod( 'themeslug_logo' ) ) : ?>
+
+        <?php if( is_home() || is_front_page() ) : ?>
+              <img class="wow animated fadeInUp" src='<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'>
+        <?php else : ?>
             <img src='<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'>
+        <?php endif; ?>
+
       <?php else : ?>
           <h1 id="site-title"><?php bloginfo('title'); ?></h1>
       <?php endif; ?>

@@ -17,6 +17,15 @@ $p-stack: Lato, serif
 
 // Basic style resets
 
+#wpbody
+
+  h1, h2, h3, h4, h5
+    font-family: inherit !important
+    text-transform: inherit !important
+
+  p
+    font-family: inherit !important
+
 *
   margin: 0
   padding: 0
@@ -55,7 +64,7 @@ header
   width: 100%
   border-bottom: 0.5px solid #dfdfdf
   z-index: 60
-  padding: 10px 0px 10px 0px
+  padding: 0px
   position: relative
 
   div.container
@@ -71,21 +80,44 @@ header
       align-items: flex-end
 
   nav:first-of-type div ul li
-    display: inline
+    display: inline-block
     font-family: $h-stack
     font-weight: 400
     text-transform: uppercase
-    margin-right: 10px
+    margin-right: 0px
+    padding: 5px 3px 5px 3px
+    height: 100%
 
   a
     color: $text
 
+  a
+    color: $text
+    text-decoration: none !important
+
+  nav:first-of-type div ul li:hover
+    background-color: rgba(0,0,0,0.1)
+
+
   nav:last-of-type div ul li
-    display: inline
+    display: inline-block
     font-family: $h-stack
     font-weight: 400
     text-transform: uppercase
-    margin-right: 7px
+    margin-right: 0px
+    padding: 5px 5px 5px 5px
+    height: 100%
+
+  a
+    color: $text
+
+  a
+    color: $text
+    text-decoration: none !important
+
+  nav:last-of-type div ul li:hover
+    background-color: rgba(0,0,0,0.1)
+  
 
 div#spacer.on
   width: 100%
@@ -607,8 +639,9 @@ div.sidebar
           color: $brand-red
           padding: 5px
           box-sizing: content-box
-          font-size: 0.9em
+          font-size: 0.8em
           font-family: $p-stack
+          font-weight: 100
 
         input.button:hover
           background: $light-grey !important
@@ -794,9 +827,8 @@ article
 
     p
       margin: 0px 20px 20px 20px
-      font-size: 1.1em
+      font-size: 1em
       color: $text
-      font-weight: 100
 
       a
         color: $brand-red

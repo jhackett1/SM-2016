@@ -5,6 +5,9 @@
 <?php get_template_part( "masthead" ); ?>
 
 <!-- A section displaying three featured posts -->
+
+<?php if(is_home() && !is_paged()) { ?>
+
 <section id="featured">
 
   <?php
@@ -74,6 +77,8 @@ $feat = $feat[0];
     </div>
   </div>
 </section>
+<?php }; ?>
+
 
 <section id="latest">
   <div class="container">
@@ -99,7 +104,7 @@ $feat = $feat[0];
 $feat = $feat[0];
           ?>
           <div class="grid-item">
-            <div class="post">
+            <div class="post wow slideInUp animated"  data-wow-duration="0.3s" data-wow-offset="0">
               <a class="cover" href="<?php the_permalink(); ?>"></a>
               <img src="<?php echo $feat; ?>" />
               <h5><?php the_category( ", " ); ?> | By <?php the_author(); ?></h5>
@@ -133,6 +138,10 @@ itemSelector: '.grid-item',
 percentPosition: true
 });
 }
+</script>
+
+<script>
+  new WOW().init();
 </script>
 
 <?php get_footer(); ?>

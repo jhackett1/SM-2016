@@ -5,6 +5,7 @@
 	wp_enqueue_style( 'FontAwesome', get_stylesheet_directory_uri() . '/font-awesome/css/font-awesome.min.css' );
 	wp_enqueue_script( 'jquery', get_template_directory_uri() . '/js/jquery-1.12.4.min.js');
 	wp_enqueue_script( 'masthead', get_template_directory_uri() . '/js/masthead.js');
+	wp_enqueue_script( 'wow', get_template_directory_uri() . '/js/wow.js');
 	wp_enqueue_script( 'masonry', 'https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js');
 
 //Adds in Google Web fonts
@@ -240,19 +241,40 @@ class smoke_subscribe extends WP_Widget {
 		<p>Want to contribute? Get on our mailing list.</p>
 		<!-- Begin MailChimp Signup Form -->
 		<link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
+
+		<!-- Begin MailChimp Signup Form -->
 		<div id="mc_embed_signup">
 		<form action="//media.us13.list-manage.com/subscribe/post?u=bae3fdf7dc6f735f144847240&amp;id=ffaab9e48d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 		    <div id="mc_embed_signup_scroll">
 
-			<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" required>
-		    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+		<div class="mc-field-group">
+			<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your email">
+		</div>
+		<div class="mc-field-group input-group" style="display: none;">
+		    <strong>Outlets </strong>
+		    <ul><li><input type="checkbox" value="1" name="group[7153][1]" id="mce-group[7153]-7153-0" checked><label for="mce-group[7153]-7153-0">QH</label></li>
+		<li><input type="checkbox" value="2" name="group[7153][2]" id="mce-group[7153]-7153-1" checked><label for="mce-group[7153]-7153-1">Magazine</label></li>
+		<li><input type="checkbox" value="4" name="group[7153][4]" id="mce-group[7153]-7153-2" checked><label for="mce-group[7153]-7153-2">Radio</label></li>
+		<li><input type="checkbox" value="8" name="group[7153][8]" id="mce-group[7153]-7153-3" checked><label for="mce-group[7153]-7153-3">TV</label></li>
+		</ul>
+		</div>
+			<div id="mce-responses" class="clear">
+				<div class="response" id="mce-error-response" style="display:none"></div>
+				<div class="response" id="mce-success-response" style="display:none"></div>
+			</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
 		    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_bae3fdf7dc6f735f144847240_ffaab9e48d" tabindex="-1" value=""></div>
+
+
 		    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
 		    </div>
 		</form>
 		</div>
 
 		<!--End mc_embed_signup-->
+
+
+
+
 		<?php
 		echo '</div>' ;
 	}
@@ -358,3 +380,48 @@ function my_save_extra_profile_fields( $user_id ) {
 	update_usermeta( $user_id, 'twitter', $_POST['twitter'] );
 	update_usermeta( $user_id, 'mail', $_POST['mail'] );
 }
+
+
+//Register the star shortcodes
+
+add_shortcode('0star', function() {
+	return '<i class="fa fa-2x fa-star-o"></i><i class="fa fa-2x fa-star-o"></i><i class="fa fa-2x fa-star-o"></i><i class="fa fa-2x fa-star-o"></i><i class="fa fa-2x fa-star-o"></i>';
+});
+
+add_shortcode('1star', function() {
+	return '<i class="fa fa-2x fa-star"></i><i class="fa fa-2x fa-star-o"></i><i class="fa fa-2x fa-star-o"></i><i class="fa fa-2x fa-star-o"></i><i class="fa fa-2x fa-star-o"></i>';
+});
+
+add_shortcode('2star', function() {
+	return '<i class="fa fa-2x fa-star"></i><i class="fa fa-2x fa-star"></i><i class="fa fa-2x fa-star-o"></i><i class="fa fa-2x fa-star-o"></i><i class="fa fa-2x fa-star-o"></i>';
+});
+
+add_shortcode('3star', function() {
+	return '<i class="fa fa-2x fa-star"></i><i class="fa fa-2x fa-star"></i><i class="fa fa-2x fa-star"></i><i class="fa fa-2x fa-star-o"></i><i class="fa fa-2x fa-star-o"></i>';
+});
+
+add_shortcode('4star', function() {
+	return '<i class="fa fa-2x fa-star"></i><i class="fa fa-2x fa-star"></i><i class="fa fa-2x fa-star"></i><i class="fa fa-2x fa-star"></i><i class="fa fa-2x fa-star-o"></i>';
+});
+
+add_shortcode('5star', function() {
+	return '<i class="fa fa-2x fa-star"></i><i class="fa fa-2x fa-star"></i><i class="fa fa-2x fa-star"></i><i class="fa fa-2x fa-star"></i><i class="fa fa-2x fa-star"></i>';
+});
+
+//Hide the "featured" category and others on the front-end
+
+			add_filter('get_the_terms', 'hide_categories_terms', 10, 3);
+			function hide_categories_terms($terms, $post_id, $taxonomy){
+
+			    $exclude = array('featured', 'uncategorized');
+
+			    if (!is_admin()) {
+			        foreach($terms as $key => $term){
+			            if($term->taxonomy == "category"){
+			                if(in_array($term->slug, $exclude)) unset($terms[$key]);
+			            }
+			        }
+			    }
+
+			    return $terms;
+			};
