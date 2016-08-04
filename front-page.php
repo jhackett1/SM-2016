@@ -35,7 +35,7 @@ $feat = $feat[0];
         if ($counter==0){
           ?>
           <div class="spacer">
-            <div class="post hero">
+            <div class="post hero wow animated fadeIn" data-wow-offset="0" data-wow-duration="0.3s" data-wow-delay="0s">
               <a class="cover" href="<?php the_permalink(); ?>"></a>
               <div class="img" style="background-image:url(<?php echo $feat; ?>) "></div>
               <div class="meta">
@@ -50,7 +50,7 @@ $feat = $feat[0];
         } else {
           ?>
           <div class="sidebyside">
-            <div class="post trail" style="background-image:url(<?php echo $feat; ?>) ">
+            <div class="post trail wow animated fadeIn" data-wow-offset="0" data-wow-duration="0.3s" data-wow-delay="0.2s" style="background-image:url(<?php echo $feat; ?>) ">
               <a class="cover" href="<?php the_permalink(); ?>"></a>
               <div class="grad"></div>
               <h3><?php the_title(); ?></h3>
@@ -99,7 +99,7 @@ $feat = $feat[0];
 $feat = $feat[0];
           ?>
           <div class="grid-item">
-            <div class="post">
+            <div class="post wow animated fadeInUp" data-wow-duration="0.3s" data-wow-offset="0.5">
               <a class="cover" href="<?php the_permalink(); ?>"></a>
               <img src="<?php echo $feat; ?>" />
               <h5><?php the_category( ", " ); ?> | By <?php the_author(); ?></h5>

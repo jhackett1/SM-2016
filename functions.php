@@ -5,6 +5,7 @@
 	wp_enqueue_style( 'FontAwesome', get_stylesheet_directory_uri() . '/font-awesome/css/font-awesome.min.css' );
 	wp_enqueue_script( 'jquery', get_template_directory_uri() . '/js/jquery-1.12.4.min.js');
 	wp_enqueue_script( 'masthead', get_template_directory_uri() . '/js/masthead.js');
+	wp_enqueue_script( 'wow', get_template_directory_uri() . '/js/wow.js');
 	wp_enqueue_script( 'masonry', 'https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js');
 
 //Adds in Google Web fonts
@@ -27,6 +28,17 @@ add_filter('user_can_richedit' , create_function('' , 'return false;') , 50);
 
 //Allows featured images
 	 add_theme_support( 'post-thumbnails' );
+
+
+	 //Custom image sizes
+
+	 add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
+	 function wpdocs_theme_setup() {
+	     add_image_size( 'ogimg', 400 ); // 300 pixels wide (and unlimited height)
+	 }
+
+
+
 
 //New default avatar
 
@@ -111,7 +123,7 @@ add_action( 'widgets_init', 'sidebar' );
 
 			extract ( $args, EXTR_SKIP);
 			$title = ( $instance['title']) ? $instance['title'] : '';
-			$category = ( $instance['title']) ? $instance['cat'] : '31';
+			$category = ( $instance['title']) ? $instance['cat'] : '9';
 
 			echo '<div class="widget">' ;
 			echo '<h4>' . $title . '</h4>' ;

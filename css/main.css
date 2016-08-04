@@ -36,7 +36,7 @@ header {
   width: 100%;
   border-bottom: 0.5px solid #dfdfdf;
   z-index: 60;
-  padding: 10px 0px 10px 0px;
+  padding: 0px;
   position: relative; }
   header div.container {
     display: flex;
@@ -48,19 +48,35 @@ header {
     header div.container nav:last-of-type {
       align-items: flex-end; }
   header nav:first-of-type div ul li {
-    display: inline;
+    display: inline-block;
     font-family: Oswald, sans serif;
     font-weight: 400;
     text-transform: uppercase;
-    margin-right: 10px; }
+    margin-right: 0px;
+    padding: 5px 3px 5px 3px;
+    height: 100%; }
   header a {
     color: #2d2d2d; }
+  header a {
+    color: #2d2d2d;
+    text-decoration: none !important; }
+  header nav:first-of-type div ul li:hover {
+    background-color: rgba(0, 0, 0, 0.1); }
   header nav:last-of-type div ul li {
-    display: inline;
+    display: inline-block;
     font-family: Oswald, sans serif;
     font-weight: 400;
     text-transform: uppercase;
-    margin-right: 7px; }
+    margin-right: 0px;
+    padding: 5px 5px 5px 5px;
+    height: 100%; }
+  header a {
+    color: #2d2d2d; }
+  header a {
+    color: #2d2d2d;
+    text-decoration: none !important; }
+  header nav:last-of-type div ul li:hover {
+    background-color: rgba(0, 0, 0, 0.1); }
 
 div#spacer.on {
   width: 100%;
@@ -645,6 +661,9 @@ article {
     max-width: 100%; }
   article div.content div.addthis_toolbox {
     margin-left: 20px; }
+  article div.content div.issuuembed {
+    margin: 20px !important;
+    max-width: 100%; }
   article div.content blockquote, article div.content p blockquote {
     max-width: 40%;
     float: right; }
@@ -830,5 +849,3 @@ article.page {
     margin: 10px 0px 50px 0px; }
   article.page a {
     color: #9c1f32; }
-
-/*# sourceMappingURL=main.css.map */

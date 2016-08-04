@@ -55,7 +55,7 @@ header
   width: 100%
   border-bottom: 0.5px solid #dfdfdf
   z-index: 60
-  padding: 10px 0px 10px 0px
+  padding: 0px
   position: relative
 
   div.container
@@ -71,21 +71,44 @@ header
       align-items: flex-end
 
   nav:first-of-type div ul li
-    display: inline
+    display: inline-block
     font-family: $h-stack
     font-weight: 400
     text-transform: uppercase
-    margin-right: 10px
+    margin-right: 0px
+    padding: 5px 3px 5px 3px
+    height: 100%
 
   a
     color: $text
 
+  a
+    color: $text
+    text-decoration: none !important
+
+  nav:first-of-type div ul li:hover
+    background-color: rgba(0,0,0,0.1)
+
+
   nav:last-of-type div ul li
-    display: inline
+    display: inline-block
     font-family: $h-stack
     font-weight: 400
     text-transform: uppercase
-    margin-right: 7px
+    margin-right: 0px
+    padding: 5px 5px 5px 5px
+    height: 100%
+
+  a
+    color: $text
+
+  a
+    color: $text
+    text-decoration: none !important
+
+  nav:last-of-type div ul li:hover
+    background-color: rgba(0,0,0,0.1)
+
 
 div#spacer.on
   width: 100%
@@ -780,6 +803,10 @@ article
 
     div.addthis_toolbox
       margin-left: 20px
+
+    div.issuuembed
+      margin: 20px !important
+      max-width: 100%
 
     blockquote, p blockquote
       max-width: 40%
