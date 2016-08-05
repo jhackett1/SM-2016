@@ -14,7 +14,7 @@ if ( have_posts() ){
   <article>
       <h3><?php the_category(); ?></h3>
       <h2><?php the_title(); ?></h2>
-      <img src="<?php echo $feat; ?>"/>
+      <img class="wow animated fadeIn" data-wow-duration="0.2s" src="<?php echo $feat; ?>"/>
       <h5><?php the_date();?> &middot; By <?php the_author_posts_link(); ?> &middot; <?php reading_time(); ?></h5>
       <hr>
       <div class="content">

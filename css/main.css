@@ -666,6 +666,18 @@ article {
     margin-left: 20px;
     margin-right: 20px;
     max-width: 100%; }
+  article div.content h1, article div.content h2, article div.content h3, article div.content h4, article div.content h5 {
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    color: #2d2d2d; }
+  article div.content ul, article div.content ol {
+    margin-bottom: 20px;
+    font-family: Lato, serif;
+    margin-left: 40px; }
+    article div.content ul li, article div.content ol li {
+      margin-bottom: 5px; }
   article div.content div.addthis_toolbox {
     margin-left: 20px; }
   article div.content blockquote, article div.content p blockquote {
@@ -680,7 +692,8 @@ article {
   article div.content p {
     margin: 0px 20px 20px 20px;
     font-size: 1em;
-    color: #2d2d2d; }
+    color: #2d2d2d;
+    font-weight: 400; }
     article div.content p a {
       color: #9c1f32;
       text-decoration: none; }

@@ -79,6 +79,17 @@
 		"shouldRunBless": 0,
 		"useLibsass": false
 		},
+	"\/favicon.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 8422,
+		"inputAbbreviatedPath": "\/favicon.png",
+		"outputAbbreviatedPath": "\/favicon.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/font-awesome\/css\/font-awesome.css": {
 		"fileType": 16,
 		"ignore": 1,

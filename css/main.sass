@@ -117,7 +117,7 @@ header
 
   nav:last-of-type div ul li:hover
     background-color: rgba(0,0,0,0.1)
-  
+
 
 div#spacer.on
   width: 100%
@@ -806,10 +806,25 @@ article
       color: $dark-red
 
   div.content
-    h1,h2,h3,h4,h5,blockquote, ul
+    h1,h2,h3,h4,h5,blockquote,ul
       margin-left: 20px
       margin-right: 20px
       max-width: 100%
+
+    h1,h2,h3,h4,h5
+      font-size: 1.8em
+      font-weight: 700
+      margin-bottom: 20px
+      margin-top: 30px
+      color: $text
+
+    ul,ol
+      margin-bottom: 20px
+      font-family: $p-stack
+      margin-left: 40px
+
+      li
+        margin-bottom: 5px
 
     div.addthis_toolbox
       margin-left: 20px
@@ -829,6 +844,7 @@ article
       margin: 0px 20px 20px 20px
       font-size: 1em
       color: $text
+      font-weight: 400
 
       a
         color: $brand-red

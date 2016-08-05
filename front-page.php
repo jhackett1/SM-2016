@@ -27,9 +27,16 @@
     //Declares a counter variable, which will count only the first three posts
     $counter = 0;
     //The loop
-    if ( have_posts() ){
-      while ( have_posts() && $counter<3 ){
-        the_post();
+
+    $featured_query = new WP_Query(
+
+    array( 'cat' => '3' )
+
+  );
+
+    if ( $featured_query->have_posts() ){
+      while ( $featured_query->have_posts() && $counter<3 ){
+        $featured_query->the_post();
 
         $feat = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
 $feat = $feat[0];
