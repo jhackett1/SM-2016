@@ -29,6 +29,17 @@ add_filter('user_can_richedit' , create_function('' , 'return false;') , 50);
 //Allows featured images
 	 add_theme_support( 'post-thumbnails' );
 
+
+	 //Custom image sizes
+
+	 add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
+	 function wpdocs_theme_setup() {
+	     add_image_size( 'ogimg', 400 ); // 300 pixels wide (and unlimited height)
+	 }
+
+
+
+
 //New default avatar
 
 	function newgravatar ($avatar_defaults) {
@@ -112,7 +123,7 @@ add_action( 'widgets_init', 'sidebar' );
 
 			extract ( $args, EXTR_SKIP);
 			$title = ( $instance['title']) ? $instance['title'] : '';
-			$category = ( $instance['title']) ? $instance['cat'] : '31';
+			$category = ( $instance['title']) ? $instance['cat'] : '9';
 
 			echo '<div class="widget">' ;
 			echo '<h4>' . $title . '</h4>' ;

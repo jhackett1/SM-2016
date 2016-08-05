@@ -630,6 +630,7 @@ article {
       text-decoration: none; }
   article img {
     width: 100% !important;
+    height: auto !important;
     margin: 0px;
     max-width: 100%;
     border-bottom: 3px solid #6f1523; }
@@ -666,6 +667,7 @@ article {
     margin-left: 20px;
     margin-right: 20px;
     max-width: 100%; }
+<<<<<<< HEAD
   article div.content h1, article div.content h2, article div.content h3, article div.content h4, article div.content h5 {
     font-size: 1.8em;
     font-weight: 700;
@@ -678,8 +680,15 @@ article {
     margin-left: 40px; }
     article div.content ul li, article div.content ol li {
       margin-bottom: 5px; }
+=======
+  article div.content img {
+    height: auto !important; }
+>>>>>>> origin/master
   article div.content div.addthis_toolbox {
     margin-left: 20px; }
+  article div.content div.issuuembed {
+    margin: 20px !important;
+    max-width: 100%; }
   article div.content blockquote, article div.content p blockquote {
     max-width: 40%;
     float: right; }
