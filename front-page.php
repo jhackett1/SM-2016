@@ -49,7 +49,7 @@ $feat = $feat[0];
               <a class="cover" href="<?php the_permalink(); ?>"></a>
               <div class="img" style="background-image:url(<?php echo $feat; ?>) "></div>
               <div class="meta">
-                <h5><?php the_category( ", " ); ?> | By <?php the_author(); ?></h5>
+                <h5><?php the_category( ", " ); ?> &middot; By <?php the_author(); ?></h5>
                 <h3><?php the_title(); ?></h3>
                 <hr>
                 <p><?php the_excerpt(); ?></p>
@@ -114,7 +114,7 @@ $feat = $feat[0];
             <div class="post wow slideInUp animated"  data-wow-duration="0.3s" data-wow-offset="0">
               <a class="cover" href="<?php the_permalink(); ?>"></a>
               <img src="<?php echo $feat; ?>" />
-              <h5><?php the_category( ", " ); ?> | By <?php the_author(); ?></h5>
+              <h5><?php the_category( ", " ); ?> &middot; By <?php the_author(); ?></h5>
               <h3><?php the_title(); ?></h3>
               <hr>
               <p><?php the_excerpt(); ?></p>
