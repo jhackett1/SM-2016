@@ -15,20 +15,34 @@
 		}
 		add_action('wp_print_styles', 'load_fonts');
 
-//Fix user roles
-function add_theme_caps() {
-    // gets the author role
-    $role = get_role( 'contributor' );
-    $role->add_cap( 'upload_files' );
-}
-add_action( 'admin_init', 'add_theme_caps');
+		//Fix user roles
+		function add_theme_caps() {
+		    // gets the author role
+		    $role = get_role( 'contributor' );
+		    $role->add_cap( 'upload_files' );
+		}
+		add_action( 'admin_init', 'add_theme_caps');
 
-function add_theme_caps2() {
-    // gets the author role
-    $role = get_role( 'contributor' );
-    $role->add_cap( 'edit_others_posts' );
-}
-add_action( 'admin_init', 'add_theme_caps2');
+		function add_theme_caps2() {
+		    // gets the author role
+		    $role = get_role( 'contributor' );
+		    $role->add_cap( 'edit_others_posts' );
+		}
+		add_action( 'admin_init', 'add_theme_caps2');
+
+		function add_theme_caps3() {
+		    // gets the author role
+		    $role = get_role( 'contributor' );
+		    $role->add_cap( 'edit_published_posts' );
+		}
+		add_action( 'admin_init', 'add_theme_caps3');
+
+		function remove_theme_caps() {
+		    // gets the author role
+		    $role = get_role( 'editor' );
+		    $role->remove_cap( 'publish_posts' );
+		}
+		add_action( 'admin_init', 'remove_theme_caps');
 
 
 // img unautop
