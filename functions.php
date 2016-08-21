@@ -407,3 +407,23 @@ function my_save_extra_profile_fields( $user_id ) {
 	update_usermeta( $user_id, 'twitter', $_POST['twitter'] );
 	update_usermeta( $user_id, 'mail', $_POST['mail'] );
 }
+
+//A function to slide featured images into the feed
+function featuredfeedy($content) {
+
+//Get the global post var
+global $post;
+
+//If there's a featuerd image set, slide it into the feed above the post content inside a containing div. Large size.
+if ( has_post_thumbnail( $post->ID ) ){
+$content = '<div>' . get_the_post_thumbnail( $post->ID, 'large', array( 'style' => 'margin-bottom: 10px;' ) ) . '</div>' . $content;
+}
+
+//Give the new, updated content
+return $content;
+
+};
+
+//Wraps everything up nicely
+add_filter('the_excerpt_rss', 'featuredfeedy');
+add_filter('the_content_feed', 'featuredfeedy');
