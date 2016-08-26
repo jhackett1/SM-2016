@@ -702,6 +702,9 @@ article {
       color: #6f1523;
       text-decoration: underline; }
 
+div.issuuembed, div.issuu-isrendered {
+  margin: 20px; }
+
 h2#archives {
   font-size: 3em;
   margin: 30px 10px 30px 10px;
